@@ -319,40 +319,40 @@
 <section class="page-section" id="contact">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Contacta con nosotros</h2>
+            <h3 class="section-subheading text-muted">Haznos cualquier consulta.</h3>
         </div>
         <form id="contactForm" name="sentMessage" novalidate="novalidate">
             <div class="row align-items-stretch mb-5">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required"
-                               data-validation-required-message="Please enter your name."/>
+                        <input class="form-control" id="name" name="from_name" type="text" placeholder="Tu Nombre *" required="required"
+                               data-validation-required-message="Por favor, introduce tu nombre."/>
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="email" type="email" placeholder="Your Email *"
-                               required="required" data-validation-required-message="Please enter your email address."/>
+                        <input class="form-control" id="email" name="from_email" type="email" placeholder="Tu Email *"
+                               required="required" data-validation-required-message="Por favor, introduce tu dirección de correo electrónico."/>
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group mb-md-0">
-                        <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required"
-                               data-validation-required-message="Please enter your phone number."/>
+                        <input class="form-control" id="phone" name="phone_number" type="tel" placeholder="Tu Teléfono *" required="required"
+                               data-validation-required-message="Por favor, introduce tu número de teléfono."/>
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-group-textarea mb-md-0">
-                        <textarea class="form-control" id="message" placeholder="Your Message *" required="required"
-                                  data-validation-required-message="Please enter a message."></textarea>
+                        <textarea class="form-control" id="message" name="message" placeholder="Tu Mensaje *" required="required"
+                                  data-validation-required-message="Por favor, introduce tu mensaje."></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
             </div>
             <div class="text-center">
                 <div id="success"></div>
-                <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send
-                    Message
+                <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Enviar
+                    Mensaje
                 </button>
             </div>
         </form>
@@ -491,7 +491,8 @@
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
 <script src="js/promo.js"></script>
-<script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script type="text/javascript">
     function getYear() {
         var d = new Date();
         var n = d.getFullYear();
@@ -543,6 +544,30 @@
         "",
         "A partir de Marzo 2021"
     );
+
+    (function() {
+        emailjs.init("user_wkmlFiMkcumjZ1TMEyT48");
+    })();
+
+    var myform = $("#contactForm");
+    myform.submit(function(event) {
+        event.preventDefault();
+
+        // Change to your service ID, or keep using the default service
+        var service_id = "default_service";
+        var template_id = "template_zc9t4kk";
+
+        myform.find("button").text("Sending...");
+        emailjs.sendForm(service_id, template_id, myform[0])
+            .then(function() {
+                alert("Mensaje Enviado");
+                myform.find("button").text("Enviar Mensaje");
+            }, function(err) {
+                alert("Mensaje no enviado\r\n Respuesta:\n " + JSON.stringify(err));
+                myform.find("button").text("Enviar Mensaje");
+            });
+        return false;
+    });
 </script>
 </body>
 </html>
