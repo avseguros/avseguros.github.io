@@ -124,11 +124,11 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/03-thumbnail.jpg" alt=""/>
+                        <img class="img-fluid" src="assets/img/auto_home_promo_thum.png" alt=""/>
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Finish</div>
-                        <div class="portfolio-caption-subheading text-muted">Identity</div>
+                        <div class="portfolio-caption-heading">Campaña Auto Y Hogar</div>
+                        <div class="portfolio-caption-subheading text-muted">Seguridad al volante</div>
                     </div>
                 </div>
             </div>
@@ -375,45 +375,11 @@
     </div>
 </footer>
 <!-- Portfolio Modals-->
-<!-- Modal 1-->
 <div id="promo-modals-view">
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" style="display: none;" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal"/></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here-->
-                            <h2 class="text-uppercase">Salud</h2>
-                            <p class="item-intro text-muted">Promoción</p>
-                            <img class="img-fluid d-block mx-auto" src="assets/img/salud_promo.png" alt=""/>
-                            <p>* Promoción válida exclusivamente para nuevas contrataciones de un seguro de Salud con Dental realizadas por personas físicas
-                                entre el 1-5-2021 y el 31-7-2021. Posibilidad de conseguir por el contratante el abono de hasta 100 € por asegurado siempre que se
-                                contraten los seguros de Asistencia Sanitaria y Dental o un seguro de Asistencia Sanitaria con cobertura dental, conforme se indica
-                                en las condiciones de la promoción. Si únicamente se contrata un seguro de Asistencia Sanitaria se podrá conseguir un abono en
-                                cuenta de hasta 75 € y de 25 € en el caso de un seguro Dental o de Asistencia Sanitaria Ambulatoria, conforme se indica en las
-                                condiciones de la promoción. Promoción compatible con otras campañas o promociones. Consulta el resto de condiciones y
-                                seguros en promoción con tu agente o mediador, en tu oficina de SegurCaixa Adeslas más cercana o en www.adeslas.es.
-                                Información sujeta a las condiciones de contratación y suscripción, así como a la fiscalidad vigente.</p>
-                            <ul class="list-inline">
-                                <li>Fecha: Mayo 2021 - Julio 2021</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times mr-1"></i>
-                                Cerrar Promoción
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal 2-->
-<!-- Modal 3-->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Modal 1-->
+    <!-- Modal 2-->
+    <!-- Modal 3-->
+<div class="portfolio-modal modal fade" id="" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal"/></div>
@@ -565,13 +531,48 @@
 
     getYear();
 
+    <!-- Modal 1-->
+    document.getElementById("promo-modals-view").innerHTML += promo_modal(
+        "portfolioModal1",
+        "Salud",
+        "Promoción",
+        ["salud_promo.png"],
+        "* Promoción válida exclusivamente para nuevas contrataciones de un seguro de Salud con Dental realizadas por personas físicas\n" +
+        "entre el 1-5-2021 y el 31-7-2021. Posibilidad de conseguir por el contratante el abono de hasta 100 € por asegurado siempre que se\n" +
+        "contraten los seguros de Asistencia Sanitaria y Dental o un seguro de Asistencia Sanitaria con cobertura dental, conforme se indica\n" +
+        "en las condiciones de la promoción. Si únicamente se contrata un seguro de Asistencia Sanitaria se podrá conseguir un abono en\n" +
+        "cuenta de hasta 75 € y de 25 € en el caso de un seguro Dental o de Asistencia Sanitaria Ambulatoria, conforme se indica en las\n" +
+        "condiciones de la promoción. Promoción compatible con otras campañas o promociones. Consulta el resto de condiciones y\n" +
+        "seguros en promoción con tu agente o mediador, en tu oficina de SegurCaixa Adeslas más cercana o en www.adeslas.es.\n" +
+        "Información sujeta a las condiciones de contratación y suscripción, así como a la fiscalidad vigente.",
+        "Mayo 2021 - Julio 2021"
+    );
+    <!-- Modal 2-->
     document.getElementById("promo-modals-view").innerHTML += promo_modal(
         "portfolioModal2",
-        "Salud + Accidentes",
+        `Salud + <br>Accidentes`,
         "Promoción",
         ["salud_promo21.png", "salud_promo22.png"],
-        "hola",
-        "Julio"
+        "1. Promoción  válida  exclusivamente  para  nuevas  contrataciones  de  un  seguro  de  Salud  o  de  Accidentes " +
+        "realizadas  por  personas  jurídicas entre el 1-5-2021 y el 31-7-2021. Posibilidad de conseguir por el contratante el " +
+        "abono de hasta un 15 % por póliza siempre que se  contrate  un  seguro  de  Asistencia  Sanitaria  y  otro  de " +
+        "Accidentes  conforme  se  indica  en  las  condiciones  de  la  promoción.  Si  únicamente se contrata un seguro de " +
+        "Asistencia Sanitaria o un seguro de Accidentes, se podrá conseguir un abono en cuenta de un 10 % por póliza. Promoción " +
+        "compatible con otras campañas o promociones. Consulta el resto de condiciones y seguros en promoción con  tu  agente " +
+        "o mediador,  en  tu  oficina  de  SegurCaixa  Adeslas  más  cercana  o  en  www.adeslas.es.  Información  sujeta  a " +
+        "las  condiciones de contratación y suscripción, así como a la fiscalidad vigente. 2. Edad máxima de contratación: 64 años, " +
+        "con renovación hasta los 70. La cobertura de los gastos sanitarios está limitada a 6.000 €. El capital máximo a " +
+        "pagar por persona y año está limitado a 1.500.000 €",
+        "Mayo 2021 - Julio 2021"
+    );
+    <!-- Modal 3-->
+    document.getElementById("promo-modals-view").innerHTML += promo_modal(
+        "portfolioModal3",
+        "Auto Y Hogar",
+        "Promoción",
+        ["auto_home_1.png", "auto_home_2.png", "auto_home_3.png", "auto_home_4.png", "auto_home_5.png"],
+        "",
+        "A partir de Marzo 2021"
     );
 </script>
 </body>
