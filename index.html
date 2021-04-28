@@ -350,6 +350,9 @@
                 </div>
             </div>
             <div class="text-center">
+                <div id="success-alert-correct-message" class="alert alert-success" style="visibility: hidden;" role="alert">
+                    ¡Mensaje enviado correctamente!
+                </div>
                 <div id="success"></div>
                 <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Enviar
                     Mensaje
@@ -550,6 +553,7 @@
     })();
 
     var myform = $("#contactForm");
+    var $success = $("#success-alert-correct-message");
     myform.submit(function(event) {
         event.preventDefault();
 
@@ -560,6 +564,10 @@
         myform.find("button").text("Sending...");
         emailjs.sendForm(service_id, template_id, myform[0])
             .then(function(response) {
+                $success.css("visibility", "visible");
+                setTimeout(function() {
+                    $success.css("visibility", "hidden");
+                }, 4000);
                 console.log('Email Sent Successfully!', response.status, response.text);
                 myform.find("button").text("Enviar Mensaje");
                 myform.trigger("reset");
