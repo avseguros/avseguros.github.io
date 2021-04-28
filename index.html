@@ -562,6 +562,7 @@
             .then(function(response) {
                 console.log('Email Sent Successfully!', response.status, response.text);
                 myform.find("button").text("Enviar Mensaje");
+                myform.trigger("reset");
             }, function(err) {
                 alert("Mensaje no enviado\r\n Respuesta:\n " + JSON.stringify(err));
                 myform.find("button").text("Enviar Mensaje");
