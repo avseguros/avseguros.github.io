@@ -559,9 +559,8 @@
 
         myform.find("button").text("Sending...");
         emailjs.sendForm(service_id, template_id, myform[0])
-            .then(function() {
-                alert("Mensaje Enviado");
-                myform.find("button").text("Enviar Mensaje");
+            .then(function(response) {
+                console.log('Email Sent Successfully!', response.status, response.text);
             }, function(err) {
                 alert("Mensaje no enviado\r\n Respuesta:\n " + JSON.stringify(err));
                 myform.find("button").text("Enviar Mensaje");
